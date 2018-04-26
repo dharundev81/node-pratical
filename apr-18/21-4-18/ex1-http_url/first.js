@@ -1,16 +1,17 @@
 var http = require('http');
 var url = require('url');
-var fs = require('fs');
+// var fs = require('fs');
 
 
 var date = require('./time');
 
 http.createServer(function (req, res) {
-    fs.readFile('file.html', function(err , data){
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(data);
-        res.end();
-    });
+    
+    // fs.readFile('file.html', function(err , data){
+    //     res.writeHead(200, { 'Content-Type': 'text/html' });
+    //     res.write(data);
+    //     res.end();
+    // });
 
     res.writeHead(200, { 'Content-Type': 'text/html' });
    
