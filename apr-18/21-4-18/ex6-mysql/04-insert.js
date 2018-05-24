@@ -1,0 +1,34 @@
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+    hot: "localhost",
+    user: "root",
+    password: "",
+    database: "node_samp"
+});
+
+con.connect(function(err){
+    if (err) throw err;
+    console.log("connected");
+
+    // var sql = "INSERT INTO customer (id, name) VALUES ('17','Dharun')";
+
+    // con.query(sql, function(err,result){
+    //     if (err) throw err;
+    //     console.log("1 record inserted");
+    // });
+
+    // multiple rows
+
+    var sql = "INSERT INTO customer (id, name) VALUES ?";
+    var values = [
+        ['17','Arun'],
+        ['10','RAM'],
+        ['03','HARI'],
+    ];
+    con.query(sql, [values], function(err,result){
+        if (err) throw err;
+        console.log(result.affectedRows+"record inserted");
+    });
+
+})
