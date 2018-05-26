@@ -1,10 +1,15 @@
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
-    hot: "localhost",
-    user: "root",
-    password: "",
-    database: "node_samp"
+    // hot: "localhost",
+    // user: "root",
+    // password: "",
+    // database: "node_samp"
+    host: "node.chgkmi3ejfxg.ap-south-1.rds.amazonaws.com",
+    port: "3306",
+    user: "dharundev81",
+    password: "yasodha1702",
+    database: "node_samp",
 });
 
 con.connect(function(err){
@@ -29,6 +34,7 @@ con.connect(function(err){
     con.query(sql, [values], function(err,result){
         if (err) throw err;
         console.log(result.affectedRows+"record inserted");
+        process.exit();
     });
 
 })
