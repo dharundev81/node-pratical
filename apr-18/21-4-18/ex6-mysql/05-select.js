@@ -18,9 +18,11 @@ con.connect(function(err){
 
     var na = "Arun";
 
-    var sql = "SELECT * FROM customer WHERE name = "+ mysql.escape(na);
+    // var sql = "SELECT * FROM customer WHERE name = "+ mysql.escape(na);
 
-    con.query(sql, function(err, result, fields){
+    var sql = "SELECT * FROM customer WHERE name = ?"
+
+    con.query(sql, [na], function(err, result, fields){
         if (err) throw err;
         // console.log(fields[2].name);
         console.log(result);
